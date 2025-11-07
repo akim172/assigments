@@ -8,24 +8,18 @@ void trim(char s[]) {
     * 
     * You may, however, write your own string functions that you need.
     */
-    int trimming = 0;
     int lenstr = 0;
     while (s[lenstr] != '\0'){
       lenstr++;
     }
     for (int i = lenstr-1; i >= 0; i--){
          if (s[i] == ' ' || s[i] == '\t' || s[i] == '\n' || s[i] == '\r' ){
-            trimming = 1;
             s[i] = '\0';
          } else {
-            if (trimming){
-               trimming = 0;
-            } else {
-               break;
-            }
+            break;
          }
+      }
     }
-}
 
 int main() {
    char str[100];  // Assuming max input length of 100 characters
