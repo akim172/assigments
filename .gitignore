@@ -1,0 +1,10 @@
+# Compiled binaries
+*.o
+*.out
+a.out
+
+# Executables (no extension in assignment directories)
+assignment4/palindrome
+assignment4/trim
+assignment4/zoo
+assigment5/reverse
