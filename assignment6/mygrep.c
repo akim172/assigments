@@ -17,11 +17,10 @@ int print_matched_lines(const char *s, const char *filename) {
         }
     while (1){
         char string[LINE_SIZE];
-        
-        if (fgets(string, LINE_SIZE, file) == NULL){
+        char *strptr = fgets(string, LINE_SIZE, file);
+        if (strptr == NULL){
             break;
         } else {
-            fgets(string, LINE_SIZE, file);
             if (strstr(string, s) != NULL){
                 printf("%s", string);
             }
