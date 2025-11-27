@@ -15,7 +15,6 @@ int print_matched_lines(const char *s, const char *filename) {
         if (file == NULL){
             return -1;
         }
-    printf("haay");
     while (1){
         char string[LINE_SIZE];
         
