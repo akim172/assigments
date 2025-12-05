@@ -11,6 +11,7 @@ int main(void) {
     assert(strlen("\n") == 1);
     assert(strlen("I am 67") == 7);
     assert(strlen("123456") == 6);
+    assert(strlen("abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz") == 52);
 
     strlen((const char *)NULL);
 
@@ -24,6 +25,8 @@ int main(void) {
     assert(strstr(haystack, " ") == haystack+7);
     assert(strstr(haystack, "y") == haystack+14);
     assert(strstr(haystack, "i") == haystack+4);
+    assert(strstr(haystack, "n") == haystack+15);
+    
     
     assert(strstr(haystack, "") == haystack);
     haystack = "";
@@ -40,11 +43,26 @@ int main(void) {
     assert(dest[1] == ' ');
     assert(dest[2] == 'w');
 
+    strncpy(dest,src,0);
+    assert(dest[0] == 'I');
+
     src = "hi";
     strncpy(dest,src,4);
     assert(dest[0] == 'h');
     assert(dest[1] == 'i');
     assert(dest[2] == '\0');
+    assert(dest[3] == '\0');
+
+    src = "no";
+    strncpy(dest,src,2);
+    assert(dest[0] == 'n');
+    assert(dest[1] == 'o');
+
+    src = "hi\n";
+    strncpy(dest,src,4);
+    assert(dest[0] == 'h');
+    assert(dest[1] == 'i');
+    assert(dest[2] == '\n');
     assert(dest[3] == '\0');
 
     src = "";
@@ -66,6 +84,8 @@ int main(void) {
     assert(strcmp("p", "P") > 0);
     assert(strcmp("        hi", "hi") < 0);
     assert(strcmp("", "") == 0);
+    assert(strcmp("hello", "") > 0);
+    assert(strcmp("AB", "AF") < 0);
 
     strcmp(NULL, "abc");
 
