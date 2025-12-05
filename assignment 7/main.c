@@ -58,6 +58,10 @@ int main(void) {
     assert(dest[0] == 'n');
     assert(dest[1] == 'o');
 
+    src = "yes";
+    strncpy(dest,src,1);
+    assert(dest[0] == 'y');
+
     src = "hi\n";
     strncpy(dest,src,4);
     assert(dest[0] == 'h');
